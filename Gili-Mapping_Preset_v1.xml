@@ -1,0 +1,1144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presets xmlns="http://josm.openstreetmap.de/tagging-preset-1.0">
+<!--
+    Pics have been derived from
+    http://de.wikipedia.org/wiki/Bildtafel_der_Verkehrszeichen_in_Deutschland (german street sign SVGs)
+    http://commons.wikimedia.org/wiki/Image:National_Park_Service_sample_pictographs.svg (various monochrome pictograms)
+    http://www.kde.org
+    http://openclipart.org/media/view/media/clip_art
+    http://www.sjjb.co.uk/mapicons/ (meanwhile in osm svn)
+-->
+<!--
+item:
+  name: the text to display
+  icon: the icon to display
+  - relative to the icon path
+  - URL's are also supported to allow remote icons (are cached locally)
+  type: the data types - way,node,relation,closedway (separated by comma)
+  name_template: define custom formatting for OSM primitives
+                 see http://josm.openstreetmap.de/wiki/NameTemplate
+
+link: link to the relating map features website
+  href: the URL
+
+label: simple static text label
+  text: the text to display
+
+key: fixed key/value pair to be set
+  key: key to set
+  value: value to set
+  match: none/key/key!/keyvalue (default is "keyvalue", see below for more information)
+
+text: text box
+  key: key to set
+  text: fixed label to display
+  default: default string to display (defaults to "")
+  use_last_as_default: true/false/force (default is "false")
+  match: none/key/key!/keyvalue (default is "none", see below for more information)
+  length: length of input box (number of characters allowed)
+
+combo: combo box, with multiple choices and possible to enter free form text
+  key: key to set
+  text: fixed label to display
+  values: comma separated list of values
+  display_values: comma separated list of values to be displayed instead of the
+                  database values, order and number must be equal to values
+  short_descriptions: comma separated list of texts to be displayed below each
+                      display_value. (Only if it is not possible to describe
+                      the entry in 2-3 words.) Instead of comma separeted list
+  instead using values, display_values and short_descriptions, the following form is also supported:
+    <list_entry value="" display_value="' short_description="" icon="" icon_size=""/>
+        icon: location of icon
+        icon_size: maximal size of icon. If tag is not setup it is taken default size of icon file
+  default: default string to display (defaults to "")
+  use_last_as_default: true/false/force (default is "false")
+  match: none/key/key!/keyvalue (default is none, see below for more information)
+
+multiselect: list of values from which zero or more can be selected
+  key: key to set
+  text: fixed label to display
+  delimiter: character that separates values (default: semicolon) - this
+             will also be used to separate selected values in the tag.
+  values: delimiter-separated list of values (delimiter can be escaped with backslash)
+  rows: specify the number of rows to display (default -1)
+  display_values: delimiter-separated list of values to be displayed instead of the
+                  database values, order and number must be equal to values
+  short_descriptions: delimiter-separated list of texts to be displayed below each
+                      display_value. (Only if it is not possible to describe
+                      the entry in 2-3 words.) Instead of a separated list
+  instead using values, display_values and short_descriptions, the following form is also supported:
+    <list_entry value="" display_value="' short_description="" icon="" icon_size=""/>
+        icon: location of icon
+        icon_size: maximal size of icon. If tag is not setup it is taken default size of icon file
+  default: default string to display (defaults to "")
+  use_last_as_default: true/false/force (default is "false")
+  match: none/key/key!/keyvalue (default is "none", see below for more information)
+
+check: checkbox
+  key: key to set
+  text: fixed label to display
+  default: ticked on/off
+  value_on: the value to set when checked (default is "yes")
+  value_off: the value to set when unchecked (default is "no")
+  match: none/key/key!/keyvalue (default is "none", see below for more information)
+
+role: type to specify possible roles in relations
+  key: the role name used in relation
+  text: fixed label to display
+  requisite: optional/required (default is "optional")
+  count: how often can the role occur (if not given unlimited number is assumed)
+  type: the data types - way,node,relation,closedway (separated by comma)
+
+ presets: For external files <presets> should have following attributes:
+   author: the author of the preset
+   version: a version number of some sort (e.g. creation date)
+   description: what is your preset meant to be
+   shortdescription: very short description
+   link: a link to a helpful website (optional)
+ The fields description, shortdescription and link may also be localized (e.g. de.link)
+
+See also http://josm.openstreetmap.de/wiki/TaggingPresets.
+
+The fields "name", "text", "display_values" may also be localized (e.g. de.name).
+When translations of equal words but different meanings may conflict, a translation
+context should be specified. Use "name_context", "text_context" or "values_context"
+for this. The context should be a meaningful short description to help translators.
+
+In JOSM internally all "name", "text" and "display_values" are translated when
+no specific translation has been given in XML file. When no "display_values"
+are supplied, then "values" will be treated as "display_values" and translated instead.
+
+The match attribute allows to change the matching process, i.e., determining whether
+the tags of an OSM object fit into this preset.
+ - none: neutral, i.e., do not consider this item for matching
+ - key: positive if key matches, neutral otherwise
+ - key!: positive if key matches, negative otherwise
+ - keyvalue: positive if key and value matches, negative otherwise
+Note that for a match, at least one positive and no negative is required.
+-->
+<group name="Transport" icon="presets/way_secondary.png">
+	<item name="Living Street" icon="presets/living_street.png" type="way">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:highway=living_street"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:highway=living_street"
+			  es.href="http://wiki.openstreetmap.org/wiki/ES:Tag:highway=living_street"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:highway=living_street"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:highway=living_street"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:highway=living_street" />
+		<label text="Edit Living Street" />
+		<label text="Street that can be used by Cidomo and is within an populated/built up area, pedestrians have priority" />
+		<label text="usualy paved or compacted" />
+		<space />
+		<key key="highway" value="living_street" />
+		<text key="name" text="Name" />
+		<optional>
+			<check key="width" text="narrow street smaller than 3m"  default="off" value_on="3" value_off="" />
+			<check key="oneway" text="Oneway" default="off" />
+			<check key="lit" text="Lit" default="off" /> 
+			<combo key="surface" text="Surface" values="paved,unpaved,compacted,sand,ground" />
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<!--
+	<item name="Track" icon="presets/track1.png" type="way">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:highway=track"
+			  da.href="http://wiki.openstreetmap.org/wiki/Da:Tag:highway=track"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:highway=track"
+			  fi.href="http://wiki.openstreetmap.org/wiki/Fi:Tag:highway=track"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:highway=track"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:highway=track"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:highway=track"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:highway=track"
+			  sv.href="http://wiki.openstreetmap.org/wiki/Sv:Tag:highway=track"
+			  uk.href="http://wiki.openstreetmap.org/wiki/Uk:Tag:highway=track" />
+		<label text="Edit Track" />
+		<label text="Street outside populated/built up areas that is wide enough to be used by Cidomo, usually not paved or compacted" />
+		<space />
+		<key key="highway" value="track" />
+		<optional>
+			<text key="name" text="Name" />
+			<combo key="surface" text="Surface" values="paved,unpaved,compacted,sand,ground" />
+			<check key="lit" text="Lit" default="off" /> 
+			<combo key="access" text="General access" values="yes,official,designated,destination,delivery,permissive,private,agricultural,forestry,no" />
+			<check key="width" text="narrow street smaller than 3m"  default="off" value_on="3" value_off="" />
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	-->
+	<item name="Path" icon="presets/path.png" type="way">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:highway=path"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:highway=path"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:highway=path"
+			  it.href="http://wiki.openstreetmap.org/wiki/IT:Tag:highway=path"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:highway=path"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:highway=path"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:highway=path"
+			  sv.href="http://wiki.openstreetmap.org/wiki/Sv:Tag:highway=path" />
+		<label text="Edit Path" />
+		<label text="Street or track too narrow to be used by cidomo." /> 
+		<label text="Set 'Bicyle = yes' if the path can be used by bicycle." /> 
+		<space />
+		<key key="highway" value="path" />
+		<optional>
+			<text key="name" text="Name" />
+			<combo key="surface" text="Surface" values="paved,unpaved,compacted,sand,ground" />
+			<check key="lit" text="Lit" default="off" /> 
+			<combo key="bicycle" text="Bicycle" values="yes,no" />
+			<text key="width" text="Width (meters)" />
+			<combo key="incline" text="Incline" values="10%,-10%,10°,-10°,up,down" />
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Service" icon="presets/way_unclassified.png" type="way">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:highway=service"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:highway=service"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:highway=service"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:highway=service"
+			  pl.href="http://wiki.openstreetmap.org/wiki/Pl:Tag:highway=service"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:highway=service"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:highway=service"
+			  uk.href="http://wiki.openstreetmap.org/wiki/Uk:Tag:highway=service" />
+		<label text="Edit Serviceway" />
+		<label text="Road within a hotel or school or similar complex" />
+		<label text="A service road is usually maintained by the owner of facility the road is in" />
+		<space />
+		<key key="highway" value="service" />
+		<optional>
+			<text key="name" text="Name" />
+			<combo key="surface" text="Surface" values="paved,unpaved,compacted,sand,ground" />
+			<text key="width" text="Width (meters)" />
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Steps" icon="presets/steps.png" type="way">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:highway=steps"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:highway=steps"
+			  fi.href="http://wiki.openstreetmap.org/wiki/Fi:Tag:highway=steps"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:highway=steps"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:highway=steps"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:highway=steps"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:highway=steps" />
+		<label text="Edit Steps" />
+		<label text="A path that is made up of steps" />
+		<space />
+		<key key="highway" value="steps" />
+		<optional>
+			<text key="name" text="Name" />
+			<combo key="surface" text="Surface" values="paved,unpaved,asphalt,concrete,metal,wood,paving_stones,cobblestone,gravel,pebblestone,compacted,grass_paver,grass,sand,ground" />
+			<text key="width" text="Width (meters)" />
+			<text key="step_count" text="Amount of Steps" />
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+    </item>
+	<separator/>
+	<item name="Pier" icon="presets/pier.png" type="way,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:man_made=pier"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:man_made=pier"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:man_made=pier"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:man_made=pier"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:man_made=pier" />
+		<label text="Edit Pier" />
+		<key key="man_made" value="pier" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+		<item name="Ferry Terminal" icon="presets/ferry.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=ferry_terminal"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:amenity=ferry_terminal"
+			  fi.href="http://wiki.openstreetmap.org/wiki/Fi:Tag:amenity=ferry_terminal"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=ferry_terminal"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=ferry_terminal"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:amenity=ferry_terminal" />
+		<label text="Edit Ferry Terminal" />
+		<key key="amenity" value="ferry_terminal" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+</group>
+<group name="Accomodation" icon="presets/bed.png">
+	<item name="Hotel" icon="presets/bed.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:tourism=hotel"
+			  fi.href="http://wiki.openstreetmap.org/wiki/Fi:Tag:tourism=hotel"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:tourism=hotel"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:tourism=hotel"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:tourism=hotel"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:tourism=hotel" />
+		<label text="Edit Hotel" />
+		<label text="An upper class accomodation, often has a pool, prices range usually above 750.000 per night in low season." />
+		<key key="tourism" value="hotel" />
+		<text key="name" text="Name" />
+		<text key="labelname" text="Label Text" />
+		<check key="add_on_restaurant" text="has an attached restaurant" default="off" value_on="has_restaurant" />
+		<text key="operator" text="Operator" />
+		<combo key="stars" text="Stars" values="1,2,3,4,5,6,7" />
+		<space />
+		<combo key="internet_access" text="Internet access" values="yes,wlan,wired,terminal,no" />
+		<combo key="internet_access:fee" text="Internet access fee" values="yes,no" />
+		<combo key="smoking" text="Smoking" values="yes,dedicated,separated,isolated,no" />
+		<combo key="wheelchair" text="Wheelchairs" values="yes,no" />
+		<space />
+		<text key="phone" text="Phone Number" />
+		<text key="fax" text="Fax Number" />
+		<text key="website" text="Website" />
+		<text key="email" text="Email Address" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Guest House/Bungalow" icon="styles/standard/accommodation/guest_house.png" type="node,closedway">
+		<label text="Edit Guest House" />
+		<label text="An accomodation in the middle price range, better than a homestay but still not a hotel. "/>
+		<label text="Prices usually range between 250.000 to 750.000 in low season"/>
+		<key key="tourism" value="guest_house" />
+		<text key="name" text="Name" />
+		<text key="labelname" text="Label Text" />
+		<check key="add_on_restaurant" text="has an attached restaurant" default="off" value_on="has_restaurant" />
+		<space />
+		<combo key="internet_access" text="Internet access" values="yes,wlan,wired,terminal,no" />
+		<combo key="internet_access:fee" text="Internet access fee" values="yes,no" />
+		<combo key="smoking" text="Smoking" values="yes,dedicated,separated,isolated,no" />
+		<combo key="wheelchair" text="Wheelchairs" values="yes,no" />
+		<space />
+		<text key="phone" text="Phone Number" />
+		<text key="fax" text="Fax Number" />
+		<text key="website" text="Website" />
+		<text key="email" text="Email Address" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+		<item name="Homestay" icon="styles/standard/accommodation/guest_house.png" type="node,closedway">
+		<label text="Edit Homestay" />
+		<label text="An accomodation in the budget price range, no single bungalow but usually detatched style."/>
+		<label text="Prices usually below 250.000 in low season"/>
+		<key key="tourism" value="guest_house" />
+		<key key="type_idn" value="homestay" />
+		<text key="name" text="Name" />
+		<text key="labelname" text="Label Text" />
+		<check key="add_on_restaurant" text="has an attached restaurant" default="off" value_on="has_restaurant" />
+		<space />
+		<combo key="internet_access" text="Internet access" values="yes,wlan,wired,terminal,no" />
+		<combo key="internet_access:fee" text="Internet access fee" values="yes,no" />
+		<combo key="smoking" text="Smoking" values="yes,dedicated,separated,isolated,no" />
+		<combo key="wheelchair" text="Wheelchairs" values="yes,no" />
+		<space />
+		<text key="phone" text="Phone Number" />
+		<text key="fax" text="Fax Number" />
+		<text key="website" text="Website" />
+		<text key="email" text="Email Address" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Chalet/Villa" icon="styles/standard/accommodation/chalet.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:tourism=chalet"
+			  nl.href="http://wiki.openstreetmap.org/wiki/NL:Tag:tourism=chalet"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:tourism=chalet"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:tourism=chalet" />
+		<label text="Edit Chalet/Villa" />
+		<label text="A Villa or a complex of Villas. Usually have multiple rooms and own cooking facilities."/>
+		<key key="tourism" value="chalet" />
+		<text key="name" text="Name" />
+		<text key="labelname" text="Label Text" />
+		<check key="add_on_restaurant" text="has an attached restaurant" default="off" value_on="has_restaurant" />
+		<combo key="stars" text="Stars" values="1,2,3,4,5,6,7" />
+		<space />
+		<combo key="internet_access" text="Internet access" values="yes,wlan,wired,terminal,no" />
+		<combo key="internet_access:fee" text="Internet access fee" values="yes,no" />
+		<combo key="smoking" text="Smoking" values="yes,dedicated,separated,isolated,no" />
+		<combo key="wheelchair" text="Wheelchairs" values="yes,no" />
+		<space />
+		<text key="phone" text="Phone Number" />
+		<text key="fax" text="Fax Number" />
+		<text key="website" text="Website" />
+		<text key="email" text="Email Address" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Hostel" icon="presets/hostel.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:tourism=hostel"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:tourism=hostel"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:tourism=hostel"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:tourism=hostel" />
+		<label text="Edit Hostel" />
+		<label text="A Hostel style accomodation, usually with dormitory. Budget-class" />
+		<key key="tourism" value="hostel" />
+		<text key="name" text="Name" />
+		<text key="labelname" text="Label Text" />
+		<check key="add_on_restaurant" text="has an attached restaurant" default="off" value_on="has_restaurant" />
+		<text key="operator" text="Operator" />
+		<space />
+		<combo key="internet_access" text="Internet access" values="yes,wlan,wired,terminal,no" />
+		<combo key="internet_access:fee" text="Internet access fee" values="yes,no" />
+		<combo key="smoking" text="Smoking" values="yes,dedicated,separated,isolated,no" />
+		<combo key="wheelchair" text="Wheelchairs" values="yes,no" />
+		<space />
+		<text key="phone" text="Phone Number" />
+		<text key="fax" text="Fax Number" />
+		<text key="website" text="Website" />
+		<text key="email" text="Email Address" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	
+</group>
+<group name="Shops" icon="styles/standard/shop/mall.png" >
+	<item name="Convenience Store" icon="presets/convenience.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:shop=convenience"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:shop=convenience"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:shop=convenience"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:shop=convenience" />
+		<label text="Edit Convenience Store" />
+		<label text="Convenience Store - a small local store usually selling a small selection of food items" />
+		<label text="plus things like simple first aid, household, stationery and car items" />
+		<key key="shop" value="convenience" />
+		<text key="name" text="Name" />
+		<text key="labelname" text="Label Text" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+		</item>
+	<item name="Kiosk" icon="presets/kiosk.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:shop=kiosk"
+			  it.href="http://wiki.openstreetmap.org/wiki/IT:Tag:shop=kiosk"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:shop=kiosk"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:shop=kiosk"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:shop=kiosk" />
+		<label text="Edit Kiosk" />
+		<key key="shop" value="kiosk" />
+		<text key="name" text="Name" />
+		<text key="labelname" text="Label Text" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+		</item>
+	<separator/>
+	<item name="Clothes" icon="styles/standard/shop/clothes.png" type="node,closedway">
+		<label text="Edit Clothes Shop" />
+		<key key="shop" value="clothes" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Hardware" icon="presets/hardware.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:shop=hardware"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:shop=hardware" />
+		<label text="Edit Hardware Store" />
+		<label text="A shop that sells building supplies including pipes, screws, bolts and paints... "/>
+		<key key="shop" value="hardware" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Souvenirs/Gifts" icon="styles/standard/shop/jewelry.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:shop=jewelry"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:shop=jewelry"/>
+		<label text="Edit Souvenir/Gift Shop" />
+		<label text="Shop selling gifts, greeting cards, or tourist gifts (souvenirs)" />
+		<space />            
+		<key key="shop" value="gift" />
+		<text key="name" text="Name" />            
+		<text key="operator" text="Operator" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item> 
+	<item name="Pharmacy" icon="presets/pharmacy.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=pharmacy"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:amenity=pharmacy"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:amenity=pharmacy"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=pharmacy"
+			  no.href="http://wiki.openstreetmap.org/wiki/No:Tag:amenity=pharmacy"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=pharmacy"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:amenity=pharmacy" />
+		<label text="Edit Pharmacy" />
+		<key key="amenity" value="pharmacy" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Travel Agency" icon="presets/travel.png" type="node,closedway">
+		<label text="Edit Travel Agency" />
+		<key key="shop" value="travel_agency" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+		</item>
+	<item name="Ticket Office/shop" icon="presets/bus.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:shop=ticket"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:shop=ticket"/>
+		<label text="Edit Ticket Office" />
+		<label text="A ticket shop or box office. Sells tickets for public transport, concerts, events,..." />
+		<space />            
+		<key key="shop" value="ticket" />
+		<text key="name" text="Name" />            
+		<text key="operator" text="Operator" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item> 
+ 	<item name="Laundry" icon="presets/laundry.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Proposed_features/Laundry" />
+		<label text="Edit Laundry" />
+		<label text="A shop to get your normal clothes washed" />
+		<key key="shop" value="laundry" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Hairdresser" icon="styles/standard/shop/hairdresser.png" type="node,closedway">
+		<label text="Edit Hairdresser" />
+		<key key="shop" value="hairdresser" />
+		<text key="name" text="Name" />
+		<text key="labelname" text="Label Text" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Massage/Spa" type="node,closedway">
+		<label text="Edit Massage/Spa" />
+		<key key="shop" value="massage" />
+		<text key="name" text="Name" />
+		<text key="labelname" text="Label Text" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Computer/Internet Cafe" icon="styles/standard/shop/computer.png" type="node,closedway">
+            <label text="Edit Internet Cafe/Shop" />
+            <key key="shop" value="computer" />
+			<key key="internet_access" value="service" />
+			<text key="name" text="Name" />
+        </item>
+	<item name="Bank" icon="styles/standard/money/bank.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=bank"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:amenity=bank"
+			  fi.href="http://wiki.openstreetmap.org/wiki/Fi:Tag:amenity=bank"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=bank"
+			  nl.href="http://wiki.openstreetmap.org/wiki/NL:Tag:amenity=bank"
+			  no.href="http://wiki.openstreetmap.org/wiki/No:Tag:amenity=bank"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=bank"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:amenity=bank" />
+		<label text="Edit Bank" />
+		<key key="amenity" value="bank" />
+		<text key="name" text="Name" />
+		<text key="operator" text="Operator" />
+		<combo key="opening_hours" text="Opening Hours" values="24/7,Mo-Fr 08:30-20:00,Tu-Su 08:00-15:00;Sa 08:00-12:00" />
+		<check key="atm" text="Automated Teller Machine" default="on" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Money Exchange" icon="styles/standard/money/exchange.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=bureau_de_change"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:amenity=bureau_de_change"
+			  fi.href="http://wiki.openstreetmap.org/wiki/Fi:Tag:amenity=bureau_de_change"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=bureau_de_change"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=bureau_de_change"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:amenity=bureau_de_change" />
+		<label text="Edit Money Exchange" />
+		<key key="amenity" value="bureau_de_change" />
+		<text key="name" text="Name" />
+		<combo key="opening_hours" text="Opening Hours" values="24/7,Mo-Fr 08:30-20:00,Tu-Su 08:00-15:00;Sa 08:00-12:00" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Automated Teller Machine" icon="styles/standard/money/atm.png" type="node">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=atm"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:amenity=atm"
+			  es.href="http://wiki.openstreetmap.org/wiki/ES:Tag:amenity=atm"
+			  fi.href="http://wiki.openstreetmap.org/wiki/Fi:Tag:amenity=atm"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:amenity=atm"
+			  hr.href="http://wiki.openstreetmap.org/wiki/Hr:Tag:amenity=atm"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=atm"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=atm"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:amenity=atm"
+			  uk.href="http://wiki.openstreetmap.org/wiki/Uk:Tag:amenity=atm" />
+		<label text="Edit Automated Teller Machine" />
+		<key key="amenity" value="atm" />
+		<text key="operator" text="Operator" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+</group>
+<group name="recreation" icon="presets/theme_park.png" >
+	<item name="Dive Shop"  icon="styles/standard/sport/diving.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:shop=diving"
+			  ar.href="http://wiki.openstreetmap.org/wiki/Ar:Tag:shop=diving"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:shop=diving"
+			  fi.href="http://wiki.openstreetmap.org/wiki/Fi:Tag:shop=diving"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:shop=diving"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:shop=diving"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:shop=diving"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:shop=diving" />
+		<label text="Edit Dive Shop / Dive Operator" />
+		<check key="add_on_restaurant" text="has an attached restaurant" default="off" value_on="has_restaurant" />
+		<check key="add_on_accomodation" text="has an attached accomodation" default="off" value_on="has_accomodation" />
+		<key key="shop" value="diving" />
+		<text key="name" text="Name" />		
+		<text key="labelname" text="Label Text" />
+		<combo key="opening_hours" text="Opening Hours" values="24/7,Mo-Fr 08:30-20:00,Tu-Su 08:00-15:00;Sa 08:00-12:00" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Dive Site" icon="styles/standard/sport/diving.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:sport=diving"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:tourism=diving"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:tourism=diving"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:tourism=diving"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:tourism=diving" />
+		<label text="Edit Dive Site" />
+		<key key="sport" value="diving" />
+		<text key="name" text="Name" />
+		<text key="labelname" text="Label Text" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Surf Spot" icon="styles/standard/sport/canoe.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:sport=surfing"/>
+		<label text="Edit Surf Spot" />
+		<label text="Surf Spot / Surfable Wave in the water" />
+		<space />
+		<key key="sport" value="surfing" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Horse Riding" icon="styles/standard/sport/riding.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:sport=equestrian"/>
+		<label text="Edit Horse Sport" />
+		<label text="Horse Sport / Riding" />
+		<space />
+		<key key="sport" value="equestrian" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Pitch/Sportsground" icon="presets/pitch.png" type="node,closedway">
+		<label text="Edit Pitch/Sportsground" />
+		<key key="leisure" value="pitch" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Yoga" icon="styles/standard/religion/buddhism.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:sport=surfing"/>
+		<label text="Yoga Centre" />
+		<label text="Place to Practice and Learn Yoga and Meditation" />
+		<space />
+		<key key="sport" value="yoga" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+        <item name="Volleyball" icon="styles/standard/sport/volleyball.png" type="node,closedway">         	
+            <link href="http://wiki.openstreetmap.org/wiki/Tag:sport=volleyball" />
+            <label text="Edit Volleyball" />
+            <space />            
+            <key key="sport" value="volleyball" />
+            <text key="name" text="Name" />
+            <text key="operator" text="Operator" /> 
+            <combo key="leisure" text="Type" values="stadium,pitch,sports_centre" />
+        		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+		</item> 
+        <item name="Beachvolleyball" icon="presets/beachvolleyball.png" type="node,closedway">
+            <link href="http://wiki.openstreetmap.org/wiki/Tag:sport=beachvolleyball" />
+            <label text="Edit Beachvolleyball" />
+            <space />            
+            <key key="sport" value="beachvolleyball" />
+            <text key="name" text="Name" />
+            <text key="operator" text="Operator" /> 
+            <combo key="leisure" text="Type" values="stadium,pitch,sports_centre" />
+        		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+		</item> 
+	<item name="Viewpoint" icon="presets/viewpoint.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:tourism=viewpoint"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:tourism=viewpoint"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:tourism=viewpoint"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:tourism=viewpoint"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:tourism=viewpoint" />
+		<label text="Edit Viewpoint" />
+		<key key="tourism" value="viewpoint" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Zoo/Birdpark" icon="presets/zoo.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:tourism=zoo"
+			  fi.href="http://wiki.openstreetmap.org/wiki/Fi:Tag:tourism=zoo"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:tourism=zoo" />
+		<label text="Edit Zoo or Birdpark" />
+		<key key="tourism" value="zoo" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	
+	
+	<item name="Restaurant" icon="presets/restaurant.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=restaurant"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:amenity=restaurant"
+			  es.href="http://wiki.openstreetmap.org/wiki/ES:Tag:amenity=restaurant"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:amenity=restaurant"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=restaurant"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=restaurant"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:amenity=restaurant" />
+		<label text="Edit Restaurant" />
+		<key key="amenity" value="restaurant" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Food Court" icon="presets/fastfood.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=food_court"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=food_court"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=food_court" />
+		<label text="Edit Food Court" />
+		<key key="amenity" value="food_court" />
+		<text key="name" text="Name" />
+		<combo key="opening_hours" text="Opening Hours" values="24/7,Mo-Fr 08:30-20:00,Tu-Su 08:00-15:00;Sa 08:00-12:00" />
+		<space />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	 <item name="Cafe" icon="presets/cafe.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=cafe"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=cafe"
+			  nl.href="http://wiki.openstreetmap.org/wiki/NL:Tag:amenity=cafe"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=cafe"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:amenity=cafe" />
+		<label text="Edit Cafe" />
+		<label text="A Cafe. Mostly for Coffee, tea, cakes, dessert, ice cream, small food, ..." />
+		<key key="amenity" value="cafe" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Pub" icon="presets/pub.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=pub"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:amenity=pub"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=pub"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=pub"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:amenity=pub" />
+		<label text="Edit Pub" />
+		<label text="A place selling beer and other alcoholic drinks; may also provide food." />
+		<key key="amenity" value="pub" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Bar" icon="presets/bar.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=bar"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:amenity=bar"
+			  es.href="http://wiki.openstreetmap.org/wiki/ES:Tag:amenity=bar"
+			  it.href="http://wiki.openstreetmap.org/wiki/IT:Tag:amenity=bar"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=bar"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=bar"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:amenity=bar" />
+		<label text="Edit Bar" />
+		<label text="Sells alcoholic drinks, no food. If the place also sells food than its a pub." />
+		<key key="amenity" value="bar" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+</group>
+<group name="Public Facilities" icon="styles/standard/misc/landmark/building.png">	
+	<item name="Kindergarten / TK" icon="presets/kindergarten.png" type="node,closedway,relation">
+		<label text="Edit Kindergarten/ TK" />
+		<key key="amenity" value="kindergarten" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="School" icon="presets/school.png" type="node,closedway,relation">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=school"
+			  ar.href="http://wiki.openstreetmap.org/wiki/Ar:Tag:amenity=school"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:amenity=school"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:amenity=school"
+			  it.href="http://wiki.openstreetmap.org/wiki/IT:Tag:amenity=school"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=school"
+			  pl.href="http://wiki.openstreetmap.org/wiki/Pl:Tag:amenity=school"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=school"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:amenity=school"
+			  uk.href="http://wiki.openstreetmap.org/wiki/Uk:Tag:amenity=school" />
+		<label text="Edit School" />
+		<key key="amenity" value="school" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Public Building" icon="styles/standard/service.png" type="node,closedway,relation">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=public_building"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=public_building"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=public_building"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:amenity=public_building" />
+		<label text="Edit Public Building" />
+		<key key="amenity" value="public_building" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Town hall" icon="presets/townhall.png" type="node,closedway,relation">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=townhall"
+			  fi.href="http://wiki.openstreetmap.org/wiki/Fi:Tag:amenity=townhall"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:amenity=townhall"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=townhall"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=townhall"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:amenity=townhall" />
+		<label text="Edit Town hall" />
+		<label text="Townhall or Kantor Desa/Village Administration Office" />
+		<key key="amenity" value="townhall" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Community Centre" icon="presets/community_centre.png" type="node,closedway">      	
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=community_centre"
+			  da.href="http://wiki.openstreetmap.org/wiki/Da:Tag:amenity=community_centre"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:amenity=community_centre"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=community_centre"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=community_centre"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:amenity=community_centre" />
+		<label text="Community Centre" />
+		<label text="Can also be a Posyandu" />
+		<space />            
+		<key key="amenity" value="community_centre" />
+		<text key="name" text="Name" />
+		<text key="operator" text="Operator" /> 
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>   
+	<item name="Clinic" icon="styles/standard/health/hospital.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=clinic"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:amenity=clinic"
+			  it.href="http://wiki.openstreetmap.org/wiki/IT:Tag:amenity=clinic"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=clinic"
+			  pt.href="http://wiki.openstreetmap.org/wiki/Pt:Tag:amenity=clinic"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=clinic"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:amenity=clinic" />
+		<label text="Edit Clinic" />
+		<label text="Edit Clinic like Puskesmas, Pustu, Poskesdes" />
+		<key key="amenity" value="clinic" />
+		<text key="name" text="Name" />
+		<text key="labelname" text="Label Text" />
+	<optional>
+		<text key="description" text="Description" />
+		<text key="note" text="Mapping Comment" />
+	</optional>
+	</item>
+	<item name="Doctors" icon="styles/standard/health/doctor.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=doctors"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=doctors"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=doctors" />
+		<label text="Edit Doctors" />
+		<key key="amenity" value="doctors" />
+		<text key="name" text="Name" />
+		<text key="labelname" text="Label Text" />
+		<combo key="opening_hours" text="Opening Hours" values="24/7,Mo-Fr 08:30-20:00,Tu-Su 08:00-15:00;Sa 08:00-12:00" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Dentist" icon="styles/standard/health/dentist.png" type="node,closedway">
+		<label text="Edit Dentist" />
+		<key key="amenity" value="dentist" />
+		<text key="name" text="Name" />
+		<text key="labelname" text="Label Text" />
+		<combo key="opening_hours" text="Opening Hours" values="24/7,Mo-Fr 08:30-20:00,Tu-Su 08:00-15:00;Sa 08:00-12:00" />
+	<optional>
+		<text key="description" text="Description" />
+		<text key="note" text="Mapping Comment" />
+	</optional>
+	</item>
+	<item name="Police" icon="styles/standard/service/police.png" type="node,closedway,relation">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=police"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:amenity=police"
+			  fi.href="http://wiki.openstreetmap.org/wiki/Fi:Tag:amenity=police"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:amenity=police"
+			  it.href="http://wiki.openstreetmap.org/wiki/IT:Tag:amenity=police"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=police"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=police"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:amenity=police" />
+		<label text="Edit Police" />
+		<key key="amenity" value="police" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+	</optional>
+	</item>
+	<item name="Mosque/Surau"  icon="styles/standard/religion/muslim.png" type="node,closedway,relation">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:amenity=place_of_worship"
+			  da.href="http://wiki.openstreetmap.org/wiki/Da:Tag:amenity=place_of_worship"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:amenity=place_of_worship"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:amenity=place_of_worship"
+			  it.href="http://wiki.openstreetmap.org/wiki/IT:Tag:amenity=place_of_worship"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:amenity=place_of_worship"
+			  no.href="http://wiki.openstreetmap.org/wiki/No:Tag:amenity=place_of_worship"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:amenity=place_of_worship"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:amenity=place_of_worship"
+			  sv.href="http://wiki.openstreetmap.org/wiki/Sv:Tag:amenity=place_of_worship" />
+		<label text="Edit Mosque/Surau" />
+		<key key="amenity" value="place_of_worship" />
+		<key key="religion" value="muslim" />
+		<text key="name" text="Name" />
+		<combo key="type_idn" text="Type" values="mesjid,surau" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>
+	</item>
+	<item name="Cemetery" icon="presets/cemetery.png" type="node,closedway,relation">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:landuse=cemetery"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:landuse=cemetery"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:landuse=cemetery"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:landuse=cemetery"
+			  nl.href="http://wiki.openstreetmap.org/wiki/NL:Tag:landuse=cemetery"
+			  pl.href="http://wiki.openstreetmap.org/wiki/Pl:Tag:landuse=cemetery"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:landuse=cemetery"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:landuse=cemetery" />
+		<label text="Edit Cemetery Landuse" />
+		<space />
+		<key key="landuse" value="cemetery" />
+		<text key="name" text="Name" />
+		<combo key="religion" text="Religion" values="bahai,buddhist,christian,hindu,jain,jewish,muslim,sikh,spiritualist,taoist,unitarian,zoroastrian" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>      
+	</item>
+</group>
+<group name="Man Made" icon="presets/works.png">
+	<item name="Power Generator" icon="presets/power.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:power=generator"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:power=generator"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:power=generator"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:power=generator"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:power=generator"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:power=generator" />
+		<label text="Edit Power Generator" />
+		<key key="power" value="generator" />
+		<text key="name" text="Name" />
+		<combo key="generator:source" text="Source" values="biofuel,biogas,biomass,coal,diesel,gas,gasoline,geothermal,hydro,nuclear,oil,osmotic,solar,tidal,waste,wave,wind" />
+		<combo key="generator:method" text="Method" values="anaerobic_digestion,combustion,dam,fission,fusion,gasification,photovoltaic,pumped-storage,pumping,pyrolysis,run-of-the-river,thermal" />
+		<optional>
+			<text key="operator" text="Operator" />
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>  
+	</item>
+	<item name="Tower" icon="presets/tower.png" type="node,closedway">
+		<label text="Edit Tower" />
+		<key key="man_made" value="tower" />
+		<text key="name" text="Name" />
+		<combo key="tower:type" text="Tower type" values="communication,observation" />
+		<optional>
+			<text key="operator" text="Operator" />
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>   
+	</item>
+	<item name="Water Tower" icon="presets/water_tower.png" type="node,closedway">
+		<label text="Edit Water Tower" />
+		<key key="man_made" value="water_tower" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="operator" text="Operator" />
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>  
+	</item>
+	<item name="Lighthouse" icon="styles/standard/misc/landmark/lighthouse.png" type="node,closedway">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:man_made=lighthouse"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:man_made=lighthouse"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:man_made=lighthouse"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:man_made=lighthouse" />
+		<label text="Edit Lighthouse" />
+		<key key="man_made" value="lighthouse" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>  
+	</item>
+	<item name="Beacon" icon="styles/standard/misc/landmark/beacon.png" type="node">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:man_made=beacon"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:man_made=beacon"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:man_made=beacon" />
+		<label text="Edit Beacon - Structures for signalling on land and sea / like a mini-lighthouse." />
+		<key key="man_made" value="beacon" />
+		<text key="name" text="Name" />
+		<optional>
+			<text key="description" text="Description" />
+			<text key="note" text="Mapping Comment" />
+		</optional>  			
+	</item>
+</group>
+
+<group name="Landuse" >
+	<item name="Water" icon="presets/water.png" type="node,closedway,relation">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:natural=water"
+			  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:natural=water"
+			  es.href="http://wiki.openstreetmap.org/wiki/ES:Tag:natural=water"
+			  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:natural=water"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:natural=water"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:natural=water" />
+		<label text="Edit Water" />
+		<key key="natural" value="water" />
+		<text key="name" text="Name" />
+	</item>
+	<item name="Coastline" icon="presets/coastline.png" type="node,way,closedway,relation">
+		<link href="http://wiki.openstreetmap.org/wiki/Tag:natural=coastline"
+			  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:natural=coastline"
+			  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:natural=coastline"
+			  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:natural=coastline" />
+		<label text="Edit Coastline" />
+		<key key="natural" value="coastline" />
+		<text key="name" text="Name" />
+	</item>
+	   <item name="Beach" icon="presets/beach.png" type="node,closedway,relation">
+            <link href="http://wiki.openstreetmap.org/wiki/Tag:natural=beach"
+                  es.href="http://wiki.openstreetmap.org/wiki/ES:Tag:natural=beach"
+                  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:natural=beach"
+                  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:natural=beach"
+                  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:natural=beach" />
+            <label text="Edit Beach" />
+            <key key="natural" value="beach" />
+            <text key="name" text="Name" />
+        </item>
+	 <item name="Wetland" icon="presets/empty.png" type="node,closedway,relation">
+            <link href="http://wiki.openstreetmap.org/wiki/Tag:natural=wetland"
+                  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:natural=wetland"
+                  fi.href="http://wiki.openstreetmap.org/wiki/Fi:Tag:natural=wetland"
+                  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:natural=wetland"
+                  it.href="http://wiki.openstreetmap.org/wiki/IT:Tag:natural=wetland"
+                  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:natural=wetland"
+                  pt.href="http://wiki.openstreetmap.org/wiki/Pt:Tag:natural=wetland"
+                  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:natural=wetland"
+                  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:natural=wetland" />
+            <label text="Edit Wetland, waterlogged area" />
+            <key key="natural" value="wetland" />
+            <text key="name" text="Name" />
+            <combo key="wetland" text="Type" values="swamp,bog,marsh,reedbed,saltmarsh,tidalflat,mangrove" />
+        </item>
+		 <item name="Farmland" icon="presets/landuse.png" type="closedway,relation">
+            <label text="Edit Farmland Landuse" />
+            <space />
+            <key key="landuse" value="farmland" />
+            <text key="name" text="Name" />
+        </item>
+		<item name="Orchard" icon="presets/landuse.png" type="closedway,relation">
+            <label text="Edit Orchard Landuse, Coconut Groves" />
+            <space />
+            <key key="landuse" value="orchard" />
+            <text key="name" text="Name" />
+        </item>
+		<item name="Scrub" icon="presets/empty.png" type="node,closedway,relation">
+            <label text="Edit Scrub, Uncultivated land covered with bushes or stunted trees" />
+            <key key="natural" value="scrub" />
+            <text key="name" text="Name" />
+        </item>
+		        <item name="Forest" icon="presets/landuse.png" type="node,closedway,relation">
+            <link href="http://wiki.openstreetmap.org/wiki/Tag:landuse=forest"
+                  de.href="http://wiki.openstreetmap.org/wiki/DE:Tag:landuse=forest"
+                  fr.href="http://wiki.openstreetmap.org/wiki/FR:Tag:landuse=forest"
+                  ja.href="http://wiki.openstreetmap.org/wiki/JA:Tag:landuse=forest"
+                  pt_BR.href="http://wiki.openstreetmap.org/wiki/Pt-br:Tag:landuse=forest"
+                  ru.href="http://wiki.openstreetmap.org/wiki/RU:Tag:landuse=forest" />
+            <label text="Edit Forest Landuse" />
+            <space />
+            <key key="landuse" value="forest" />
+            <text key="name" text="Name" />
+            <combo key="wood" text="Type" values="coniferous,deciduous,mixed" />
+        </item>
+		<item name="Residential area" icon="styles/standard/misc/landmark/building.png" type="closedway,relation">
+            <label text="Edit Residential Landuse" />
+            <space />
+            <key key="landuse" value="residential" />
+            <text key="name" text="Name" />
+        </item>
+</group>	
+
+</presets>
