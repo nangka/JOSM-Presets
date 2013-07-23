@@ -119,6 +119,7 @@ the tags of an OSM object fit into this preset.
  - keyvalue: positive if key and value matches, negative otherwise
 Note that for a match, at least one positive and no negative is required.
 -->
+<group name="NTB-Esocial" icon="presets/theme_park.png" >
   <group name="Access SM Jalan Raya / Highway" icon="presets/way_secondary.png">
     <group name="Jalan" icon="presets/way_secondary.png">
         <!-- by Patrick    not applicable in NTB
@@ -5794,4 +5795,5 @@ Note that for a match, at least one positive and no negative is required.
             </optional>
     </item>
   </group>  <!-- End Group Annotations  -->
+</group>   <!-- End Group NTB-ESocial --> 
 </presets>
